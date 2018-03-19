@@ -12,7 +12,7 @@ using ZESoft.Azure.Mobile.Models;
 
 namespace ZESoft.Azure.Mobile.DataStores.Sync
 {
-    public abstract class BaseAzureSyncStore<T> : IBaseAzureSyncStore<T> where T : class, IAzureDataObject, new()
+    public abstract class BaseAzureSyncStore<T> : IAzureSyncStore, IBaseAzureStore<T> where T : class, IAzureDataObject, new()
     {
         public virtual string Identifier => "Items";
 
@@ -196,7 +196,20 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
 
         public async Task<bool> DropTableAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                await Task.Run(() =>
+                {
+                    _table = null;
+                    _endpointTable = null;
+                });
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+                throw ex;
+            }
         }
 
         public async Task PullLatestAsync()
@@ -212,23 +225,25 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
             }
         }
 
-        public async Task SynchronizeAsync()
+        public async Task<bool> SynchronizeAsync()
         {
             // If the suer isn't connected to any networks at all, return
             if (!CrossConnectivity.Current.IsConnected)
-                return;
+                return false;
 
             // If syncing is turned off for the entire table, return
             if (!SyncEnabled)
-                return;
+                return false;
 
             // If the user only wants to sync over wifi and the device isn't currently connected, return
             if (this.SyncOnlyOverWiFi && !CrossConnectivity.Current.ConnectionTypes.Contains(Plugin.Connectivity.Abstractions.ConnectionType.WiFi))
-                return;
+                return false;
 
             await PushContext();
 
             await PullLatestAsync();
+
+            return true;
         }
 
         async Task PushContext()
