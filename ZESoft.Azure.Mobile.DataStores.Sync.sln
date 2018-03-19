@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B6F818C1-88BC-4FC6-BC97-A59179B5776B}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A7875258-2F39-4033-A3BF-13737BB2EFD0}"
+	ProjectSection(SolutionItems) = preProject
+		docs\ApiDocumentation.md = docs\ApiDocumentation.md
+		docs\README.md = docs\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{98751F65-6036-498B-BBC1-9857D077D335}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\NuspecPack.ps1 = nuget\NuspecPack.ps1
+		nuget\ZESoft.Azure.Mobile.DataStores.Sync.nuspec = nuget\ZESoft.Azure.Mobile.DataStores.Sync.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{8C3D4448-2B8D-4EF2-BC81-68DAD25DFCC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{52C63B67-F069-42E1-AF9C-E708D48463DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7DF230F7-63F1-44BA-BC7C-10DD70DFD460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZESoft.Azure.Mobile.DataStores.Sync", "src\ZESoft.Azure.Mobile.DataStores.Sync\ZESoft.Azure.Mobile.DataStores.Sync.csproj", "{BA3B50E5-F825-4BEB-8A03-DF2925E655EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA3B50E5-F825-4BEB-8A03-DF2925E655EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA3B50E5-F825-4BEB-8A03-DF2925E655EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA3B50E5-F825-4BEB-8A03-DF2925E655EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA3B50E5-F825-4BEB-8A03-DF2925E655EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BA3B50E5-F825-4BEB-8A03-DF2925E655EB} = {52C63B67-F069-42E1-AF9C-E708D48463DE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C322071D-CF3D-4AEF-84C2-AE6481DC07DC}
+	EndGlobalSection
+EndGlobal
