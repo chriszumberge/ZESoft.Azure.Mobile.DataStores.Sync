@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata minClientVersion="2.8.3">
     <id>ZESoft.Azure.Mobile.DataStores.Sync</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>ZESoft.Azure.Mobile.DataStores.Sync</title>
     <authors>Christopher Zumberge</authors>
     <owners>Christopher Zumberge</owners>
@@ -14,7 +14,10 @@
     <summary>
       Interfaces and abstract base stores for use with Azure Easy Tables and WebApi Table Controllers.
     </summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+      Sync Store now controls the MobileService and SQLiteStore for the sync stores that it manages.
+      Added login and logout.
+    </releaseNotes>
     <tags></tags>
     <!--<iconUrl></iconUrl>
     <projectUrl></projectUrl>

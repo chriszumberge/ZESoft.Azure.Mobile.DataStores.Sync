@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System.Threading.Tasks;
 
 namespace ZESoft.Azure.Mobile.DataStores.Sync
 {
@@ -17,5 +18,8 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
 
         //Task DropEverythingAsync();
         //Task InitializeAsync();
+
+        Task<MobileServiceUser> LoginAsync();
+        Task LogoutAsync();
     }
 }

@@ -23,6 +23,7 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
         protected abstract string LocalDatabaseFile { get; }
 
         MobileServiceClient _azureClient;
+        MobileServiceSQLiteStore _store;
 
         IMobileServiceSyncTable<T> _table;
         protected IMobileServiceSyncTable<T> Table => _table ?? (_table = _azureClient.GetSyncTable<T>());
@@ -32,9 +33,34 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
 
         public BaseAzureSyncStore()
         {
+            SetAzureMobileClient();
+            SetSQLiteStore();
+        }
+
+        public void SetAzureMobileClient(MobileServiceClient newClient = null)
+        {
             try
             {
-                _azureClient = new MobileServiceClient(AzureServiceUrl);
+                _table = null;
+                _endpointTable = null;
+
+                _azureClient = newClient ?? new MobileServiceClient(AzureServiceUrl);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+                throw ex;
+            }
+        }
+
+        public void SetSQLiteStore(MobileServiceSQLiteStore newStore = null)
+        {
+            try
+            {
+                _table = null;
+                _endpointTable = null;
+
+                _store = newStore ?? new MobileServiceSQLiteStore(LocalDatabaseFile);
             }
             catch (Exception ex)
             {
@@ -50,10 +76,11 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
                 if (_table != null)
                     return;
 
-                var store = new MobileServiceSQLiteStore(LocalDatabaseFile);
-                store.DefineTable<T>();
+                _store.DefineTable<T>();
 
-                await _azureClient.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
+                if (!_azureClient.SyncContext.IsInitialized)
+                    await _azureClient.SyncContext.InitializeAsync(_store, new MobileServiceSyncHandler());
+
                 _table = _azureClient.GetSyncTable<T>();
 
                 await _table.PurgeAsync(true);

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
+using System.Threading.Tasks;
 using ZESoft.Azure.Mobile.Models;
 
 namespace ZESoft.Azure.Mobile.DataStores.Sync
@@ -18,6 +20,9 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
     public interface IAzureSyncStore
     {
         string Identifier { get; }
+
+        void SetAzureMobileClient(MobileServiceClient newClient = null);
+        void SetSQLiteStore(MobileServiceSQLiteStore newStore = null);
 
         bool SyncEnabled { get; set; }
         bool SyncOnlyOverWiFi { get; set; }
