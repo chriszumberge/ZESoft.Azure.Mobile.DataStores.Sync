@@ -14,7 +14,7 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
 {
     public abstract class BaseAzureSyncStore<T> : IAzureSyncStore, IBaseAzureStore<T> where T : class, IAzureDataObject, new()
     {
-        public virtual string Identifier => "Items";
+        public abstract string Identifier { get; }
 
         public bool SyncEnabled { get; set; } = true;
         public bool SyncOnlyOverWiFi { get; set; }
