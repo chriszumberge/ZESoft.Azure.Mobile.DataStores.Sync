@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace AzureMobileSyncDataStoresSample.iOS
+namespace AzureSyncSample.iOS
 {
     public class Application
     {

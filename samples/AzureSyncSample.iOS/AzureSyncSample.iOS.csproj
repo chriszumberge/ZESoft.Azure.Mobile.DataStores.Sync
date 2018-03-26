@@ -8,9 +8,9 @@
     <ProjectGuid>{C16119A9-95D1-43E4-9F36-D85A41C841E2}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AzureMobileSyncDataStoresSample.iOS</RootNamespace>
+    <RootNamespace>AzureSyncSample.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>AzureMobileSyncDataStoresSample.iOS</AssemblyName>
+    <AssemblyName>AzureSyncSample.iOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -122,10 +122,4 @@
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\AzureMobileSyncDataStoresSample\AzureMobileSyncDataStoresSample.csproj">
-      <Project>{9D6C60ED-6486-4A1D-A5A2-BB439DABEB57}</Project>
-      <Name>AzureMobileSyncDataStoresSample</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

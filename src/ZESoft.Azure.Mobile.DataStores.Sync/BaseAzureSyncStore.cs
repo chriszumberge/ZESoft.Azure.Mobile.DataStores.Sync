@@ -16,7 +16,7 @@ namespace ZESoft.Azure.Mobile.DataStores.Sync
     {
         public virtual string Identifier => "Items";
 
-        public bool SyncEnabled { get; set; }
+        public bool SyncEnabled { get; set; } = true;
         public bool SyncOnlyOverWiFi { get; set; }
 
         protected abstract string AzureServiceUrl { get; }
